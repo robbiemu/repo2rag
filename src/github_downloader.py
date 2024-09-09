@@ -1,3 +1,4 @@
+import shutil
 from github import Github, Repository, ContentFile
 import os
 from typing import List, Optional
@@ -18,6 +19,15 @@ class GitHubDownloader:
         :return: The default branch name.
         """
         return self.repo.default_branch
+    
+    def _clear_directory(directory: str) -> None:
+        """
+        Clear all files and subdirectories in the given directory.
+        :param directory: The directory to clear.
+        """
+        if os.path.exists(directory):
+            shutil.rmtree(directory)  # Remove the directory and its contents
+        os.makedirs(directory)  # Recreate the directory
 
     def _download_file(self, file_content: ContentFile.ContentFile, 
                        save_dir: str) -> None:
@@ -63,4 +73,10 @@ class GitHubDownloader:
             branch = self.get_main_branch()  
         
         contents = self.repo.get_contents('', ref=branch)
+        if contents:
+            print(f"Clearing directory: {save_dir} as it contains files.")
+            self._clear_directory(save_dir)
+        else:
+            raise FileNotFoundError(f"No contents found in branch: {branch}. Directory not cleared.")
+
         self._download_directory(contents, save_dir, branch)

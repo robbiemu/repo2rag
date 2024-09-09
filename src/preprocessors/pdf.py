@@ -1,9 +1,9 @@
 import PyPDF2
 
-from preprocessor import PreprocessorPlugin
+from preprocessor_plugin import PreprocessorPlugin
 
 
-class PdfPreprocessor(PreprocessorPlugin):
+class PDFPreprocessor(PreprocessorPlugin):
     """A plugin for preprocessing PDF files."""
     def can_process(self, file_path: str) -> bool:
         return file_path.lower().endswith('.pdf')

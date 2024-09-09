@@ -1,21 +1,11 @@
 import os
-from typing import Dict, Set
+from typing import Dict
 
+from preprocessor_plugin import PreprocessorPlugin
 from preprocessors.pdf import PDFPreprocessor
 
 
 PLUGINS = [PDFPreprocessor]
-
-class PreprocessorPlugin:
-    # abstract class
-    @staticmethod
-    def get_supported_extensions() -> Set[str]:
-        """Return a set of file extensions supported by this plugin."""
-        raise NotImplementedError(
-            "Plugin must implement get_supported_extensions")
-
-    def extract_text(self, file_path: str) -> str:
-        raise NotImplementedError("Preprocessor must implement extract_text")
 
 class Preprocessor:
     """A preprocessor is a class that can extract text from a file."""

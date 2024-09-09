@@ -1,6 +1,6 @@
 # GitHub-to-RAG
 
-This project is a tool that uses pylate (a Python library for creating and using Retrieval Augmented Generators) to create a RAG from a given GitHub repository. The purpose of this tool is to facilitate the creation of summarization models based on specific repositories, thus improving the efficiency of information retrieval in large codebases.
+This project is a UNIX tool that uses pylate (a Python library for creating and using Retrieval Augmented Generators) to create a RAG from a given GitHub repository. The purpose of this tool is to facilitate the creation of summarization models based on specific repositories, thus improving the efficiency of information retrieval in large codebases.
 
 ## Purpose
 The main purpose of this project is to provide a tool that can be used by developers and data scientists to create summarization models based on specific GitHub repositories. This will improve the efficiency of information retrieval in large codebases, making it easier for users to find the information they need quickly and efficiently.
